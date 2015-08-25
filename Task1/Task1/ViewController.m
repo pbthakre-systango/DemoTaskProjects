@@ -6,14 +6,13 @@
 //  Copyright (c) 2015 Systango. All rights reserved.
 //
 
-#define CustomerIDKey @"CustomerId"
-#define ProducerIDKey @"ProducerId"
 
-#define TimeElapsedKey @"TimeElapsed"
 #define ItemProductionTime 5
 #define ItemConsumptionTime 2
 
 #import "ViewController.h"
+#import "Producer.h"
+#import "Customer.h"
 
 @interface ViewController ()
 
@@ -40,42 +39,43 @@
 // Method to handle timer. This method gets invoked after every 1 sec
 -(void)handleTimer:(id)sender
 {
-    for (NSMutableDictionary *dic in self.customerArray)
+    for (Customer *customerObj in self.customerArray)
     {
-        int timeElapsed=[[dic valueForKey:TimeElapsedKey ] intValue];
-        NSLog(@"time elapsed for %@ =%d",[dic valueForKey:CustomerIDKey],timeElapsed);
+        int timeElapsed=customerObj.timeElapsed;
+        NSLog(@"time elapsed for %@ =%d",customerObj.CustomerId,timeElapsed);
         // if time elapsed for consumer is equals to 2, consumer will consume an item and reset time elapsed to 0 else increase time elapsed by 1
         if (timeElapsed<ItemConsumptionTime)
         {
-            [dic setValue:[NSNumber numberWithInt:timeElapsed+1] forKey:TimeElapsedKey];
+           customerObj.timeElapsed= timeElapsed+1;
 
         }
         else{
             if (itemCount>0) {
                 itemCount--;
                 self.itemCountLbl.text=[NSString stringWithFormat:@"%d",itemCount];
-                [dic setValue:[NSNumber numberWithInt:0] forKey:TimeElapsedKey];
-                NSLog(@" item consumed by %@",[dic valueForKey:CustomerIDKey]);
+                customerObj.timeElapsed= 0;
+
+                NSLog(@" item consumed by %@",customerObj.CustomerId);
             }
         }
     }
-    for (NSMutableDictionary *dic in self.producerArray)
+    for (Producer *producerObj in self.producerArray)
     {
-        int timeElapsed=[[dic valueForKey:TimeElapsedKey ] intValue];
+        int timeElapsed=producerObj.timeElapsed;
        
-        NSLog(@"time elapsed for %@ =%d",[dic valueForKey:ProducerIDKey],timeElapsed);
+        NSLog(@"time elapsed for %@ =%d",producerObj.ProducerId,timeElapsed);
         // if time elapsed for producer is equals to 5, producer will produce an item and reset time elapsed to 0 else increase time elapsed by 1
 
         if (timeElapsed<ItemProductionTime)
         {
-            [dic setValue:[NSNumber numberWithInt:timeElapsed+1] forKey:TimeElapsedKey];
+            producerObj.timeElapsed= timeElapsed+1;
             
         }
         else{
                 itemCount++;
                 self.itemCountLbl.text=[NSString stringWithFormat:@"%d",itemCount];
-                [dic setValue:[NSNumber numberWithInt:0] forKey:TimeElapsedKey];
-            NSLog(@"item is produced by %@",[dic valueForKey:ProducerIDKey]);
+                producerObj.timeElapsed= 0;
+            NSLog(@"item is produced by %@",producerObj.ProducerId);
 
         }
     }
@@ -84,11 +84,11 @@
 // This methos will increase consumer count and if timer is not running it will start a timer
 -(IBAction)increaseCustomerCount:(id)sender
 {
-    NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
     NSString *custId=[NSString stringWithFormat:@"Customer_%lu",[self.customerArray count]+1 ];
-    [dic setObject:custId forKey:CustomerIDKey];
-    [dic setValue:[NSNumber numberWithInt:0] forKey:TimeElapsedKey];
-    [self.customerArray addObject:dic];
+    Customer *customerObj=[[Customer alloc]init];
+    customerObj.CustomerId=custId;
+    customerObj.timeElapsed=0;
+    [self.customerArray addObject:customerObj];
     self.customerCountLbl.text=[NSString stringWithFormat:@"%lu",[self.customerArray count]];
     if (![self.globalTimer isValid]){
         globalTimer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
@@ -102,11 +102,11 @@
 
 -(IBAction)increaseProducerCount:(id)sender
 {
-    NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
-    NSString *custId=[NSString stringWithFormat:@"Producer_%lu",[self.producerArray count]+1 ];
-    [dic setObject:custId forKey:ProducerIDKey];
-    [dic setValue:[NSNumber numberWithInt:0] forKey:TimeElapsedKey];
-    [self.producerArray addObject:dic];
+    NSString *producId=[NSString stringWithFormat:@"Producer_%lu",[self.producerArray count]+1 ];
+    Producer *producerObj=[[Producer alloc]init];
+    producerObj.ProducerId=producId;
+    producerObj.timeElapsed=0;
+    [self.producerArray addObject:producerObj];
     self.producerCountLbl.text=[NSString stringWithFormat:@"%lu",[self.producerArray count]];
 
     if (![self.globalTimer isValid]){
