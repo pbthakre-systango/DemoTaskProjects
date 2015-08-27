@@ -15,6 +15,15 @@
 		3B5832941B8C9A9800C61292 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5832931B8C9A9800C61292 /* Images.xcassets */; };
 		3B5832971B8C9A9800C61292 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B5832951B8C9A9800C61292 /* LaunchScreen.xib */; };
 		3B5832A31B8C9A9900C61292 /* Task2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5832A21B8C9A9900C61292 /* Task2Tests.m */; };
+		3B5832B41B8CA68300C61292 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5832B31B8CA68300C61292 /* SignUpViewController.m */; };
+		3B5832B71B8CA69900C61292 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5832B61B8CA69900C61292 /* LoginViewController.m */; };
+		3B5832BA1B8CA6BB00C61292 /* UserDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5832B91B8CA6BB00C61292 /* UserDetail.m */; };
+		3B5832BD1B8CA77700C61292 /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5832BC1B8CA77700C61292 /* TaskListViewController.m */; };
+		3B5832C01B8CA78C00C61292 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5832BF1B8CA78C00C61292 /* TaskDetailViewController.m */; };
+		3BA342B91B8D9DE9007DDBCC /* DBOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA342B81B8D9DE9007DDBCC /* DBOperation.m */; };
+		3BA342BC1B8DC64E007DDBCC /* TaskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA342BB1B8DC64E007DDBCC /* TaskDetail.m */; };
+		3BA342BF1B8DE20D007DDBCC /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA342BE1B8DE20D007DDBCC /* Utility.m */; };
+		3BDBF99E1B8EF58600683D23 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDBF99D1B8EF58600683D23 /* AddTaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +51,24 @@
 		3B58329C1B8C9A9900C61292 /* Task2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Task2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B5832A11B8C9A9900C61292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B5832A21B8C9A9900C61292 /* Task2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Task2Tests.m; sourceTree = "<group>"; };
+		3B5832B21B8CA68300C61292 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		3B5832B31B8CA68300C61292 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		3B5832B51B8CA69900C61292 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3B5832B61B8CA69900C61292 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3B5832B81B8CA6BB00C61292 /* UserDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetail.h; sourceTree = "<group>"; };
+		3B5832B91B8CA6BB00C61292 /* UserDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetail.m; sourceTree = "<group>"; };
+		3B5832BB1B8CA77700C61292 /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
+		3B5832BC1B8CA77700C61292 /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
+		3B5832BE1B8CA78C00C61292 /* TaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetailViewController.h; sourceTree = "<group>"; };
+		3B5832BF1B8CA78C00C61292 /* TaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetailViewController.m; sourceTree = "<group>"; };
+		3BA342B71B8D9DE9007DDBCC /* DBOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBOperation.h; sourceTree = "<group>"; };
+		3BA342B81B8D9DE9007DDBCC /* DBOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBOperation.m; sourceTree = "<group>"; };
+		3BA342BA1B8DC64E007DDBCC /* TaskDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetail.h; sourceTree = "<group>"; };
+		3BA342BB1B8DC64E007DDBCC /* TaskDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetail.m; sourceTree = "<group>"; };
+		3BA342BD1B8DE20D007DDBCC /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		3BA342BE1B8DE20D007DDBCC /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		3BDBF99C1B8EF58600683D23 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
+		3BDBF99D1B8EF58600683D23 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +114,24 @@
 				3B5832881B8C9A9800C61292 /* AppDelegate.m */,
 				3B58328D1B8C9A9800C61292 /* ViewController.h */,
 				3B58328E1B8C9A9800C61292 /* ViewController.m */,
+				3B5832B21B8CA68300C61292 /* SignUpViewController.h */,
+				3B5832B31B8CA68300C61292 /* SignUpViewController.m */,
+				3B5832B51B8CA69900C61292 /* LoginViewController.h */,
+				3B5832B61B8CA69900C61292 /* LoginViewController.m */,
+				3B5832BB1B8CA77700C61292 /* TaskListViewController.h */,
+				3B5832BC1B8CA77700C61292 /* TaskListViewController.m */,
+				3B5832BE1B8CA78C00C61292 /* TaskDetailViewController.h */,
+				3B5832BF1B8CA78C00C61292 /* TaskDetailViewController.m */,
+				3BDBF99C1B8EF58600683D23 /* AddTaskViewController.h */,
+				3BDBF99D1B8EF58600683D23 /* AddTaskViewController.m */,
+				3B5832B81B8CA6BB00C61292 /* UserDetail.h */,
+				3B5832B91B8CA6BB00C61292 /* UserDetail.m */,
+				3BA342BA1B8DC64E007DDBCC /* TaskDetail.h */,
+				3BA342BB1B8DC64E007DDBCC /* TaskDetail.m */,
+				3BA342B71B8D9DE9007DDBCC /* DBOperation.h */,
+				3BA342B81B8D9DE9007DDBCC /* DBOperation.m */,
+				3BA342BD1B8DE20D007DDBCC /* Utility.h */,
+				3BA342BE1B8DE20D007DDBCC /* Utility.m */,
 				3B5832901B8C9A9800C61292 /* Main.storyboard */,
 				3B5832931B8C9A9800C61292 /* Images.xcassets */,
 				3B5832951B8C9A9800C61292 /* LaunchScreen.xib */,
@@ -223,8 +268,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B58328C1B8C9A9800C61292 /* Task2.xcdatamodeld in Sources */,
+				3BA342B91B8D9DE9007DDBCC /* DBOperation.m in Sources */,
+				3B5832BD1B8CA77700C61292 /* TaskListViewController.m in Sources */,
+				3BDBF99E1B8EF58600683D23 /* AddTaskViewController.m in Sources */,
+				3B5832BA1B8CA6BB00C61292 /* UserDetail.m in Sources */,
+				3BA342BF1B8DE20D007DDBCC /* Utility.m in Sources */,
+				3B5832B41B8CA68300C61292 /* SignUpViewController.m in Sources */,
+				3BA342BC1B8DC64E007DDBCC /* TaskDetail.m in Sources */,
+				3B5832B71B8CA69900C61292 /* LoginViewController.m in Sources */,
 				3B5832891B8C9A9800C61292 /* AppDelegate.m in Sources */,
 				3B58328F1B8C9A9800C61292 /* ViewController.m in Sources */,
+				3B5832C01B8CA78C00C61292 /* TaskDetailViewController.m in Sources */,
 				3B5832861B8C9A9800C61292 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +472,7 @@
 				3B5832A81B8C9A9900C61292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B5832A91B8C9A9900C61292 /* Build configuration list for PBXNativeTarget "Task2Tests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +481,7 @@
 				3B5832AB1B8C9A9900C61292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
