@@ -22,4 +22,7 @@
 -(BOOL)saveTaskDetailInDB:(TaskDetail*)taskDetail;
 -(BOOL)saveUserDetailInDB:(UserDetail*)userDetail;
 -(BOOL)isUserIdExist:(NSString*)userId;
+-(UserDetail*)fetchLoggedInUser;
+-(BOOL)LogOutUserWithId:(NSString*)userId;
+-(BOOL)LogIUserWithId:(NSString*)userId;
 @end

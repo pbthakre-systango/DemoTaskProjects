@@ -45,6 +45,7 @@
             UserDetail * userDetail=[dbObject fetchUserDetailWithUserId:self.txtUserId.text];
             if ([userDetail.password isEqualToString: self.txtPassword.text])
             {
+                [dbObject LogIUserWithId:userDetail.userId];
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:
                                             @"Main" bundle:[NSBundle mainBundle]];
                 TaskListViewController *tasklistVC =

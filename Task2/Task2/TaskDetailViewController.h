@@ -10,6 +10,6 @@
 #import "TaskDetail.h"
 
 @interface TaskDetailViewController : UIViewController
-@property(nonatomic,weak)TaskDetail *taskDetail;
+@property(nonatomic,strong)TaskDetail *taskDetail;
 @property(nonatomic,weak)IBOutlet UILabel *lblTaskName,*lblTaskDetail;
 @end

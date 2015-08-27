@@ -24,6 +24,8 @@
     }
     return self;
 }
+
+
 // method to fetch user detail with user id from DB
 -(UserDetail*)fetchUserDetailWithUserId:(NSString*)userId
 {
@@ -49,12 +51,125 @@
         userInfo.userId=[dic objectForKey:kUserIdKey];
         userInfo.emailId=[dic objectForKey:kUserEmailIdKey];
         userInfo.password=[dic objectForKey:kPasswordKey];
+        userInfo.isLoggedIn=[[dic objectForKey:kUserState] boolValue];
 
         return userInfo;
     }
     return nil;
 }
-// method to user with given user id already exist in DB
+
+
+// method to fetch user detail of logged in user
+-(UserDetail*)fetchLoggedInUser
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UserDetail"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicateName = [NSPredicate predicateWithFormat:@"isLoggedIn=YES"];
+    fetchRequest.predicate=predicateName;
+    [fetchRequest setResultType:NSDictionaryResultType];
+    
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error || !fetchedObjects || [fetchedObjects count] > 1) {
+        NSLog(@"Whoops, couldn't fetch: %@", [error localizedDescription]);
+    }
+    else if ([fetchedObjects count]) {
+        
+        NSDictionary *dic=[fetchedObjects objectAtIndex:0];
+        UserDetail *userInfo=[[UserDetail alloc]init];
+        userInfo.name=[dic objectForKey:kUserNameKey];
+        userInfo.userId=[dic objectForKey:kUserIdKey];
+        userInfo.emailId=[dic objectForKey:kUserEmailIdKey];
+        userInfo.password=[dic objectForKey:kPasswordKey];
+        userInfo.isLoggedIn=[[dic objectForKey:kUserState] boolValue];
+        
+        return userInfo;
+    }
+    return nil;
+}
+
+// method to log out user with and save status in DB
+-(BOOL)LogOutUserWithId:(NSString*)userId
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UserDetail"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicateName = [NSPredicate predicateWithFormat:@"userId=%@", userId];
+    fetchRequest.predicate=predicateName;
+    
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error || !fetchedObjects || [fetchedObjects count] > 1) {
+        NSLog(@"Whoops, couldn't fetch: %@", [error localizedDescription]);
+    }
+    else if ([fetchedObjects count]) {
+        
+        NSDictionary *dic=[fetchedObjects objectAtIndex:0];
+        
+        [dic setValue:[NSNumber numberWithBool:NO] forKey:kUserState];
+        
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            return NO;
+        }
+        else{
+            NSLog(@"user state saved successfully");
+            
+            return YES;
+        }
+        
+        return YES;
+    }
+    return NO;
+    
+}
+
+// method to log in user with and save status in DB
+-(BOOL)LogIUserWithId:(NSString*)userId
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UserDetail"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicateName = [NSPredicate predicateWithFormat:@"userId=%@", userId];
+    fetchRequest.predicate=predicateName;
+    
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error || !fetchedObjects || [fetchedObjects count] > 1) {
+        NSLog(@"Whoops, couldn't fetch: %@", [error localizedDescription]);
+    }
+    else if ([fetchedObjects count]) {
+        
+        NSDictionary *dic=[fetchedObjects objectAtIndex:0];
+
+        [dic setValue:[NSNumber numberWithBool:YES] forKey:kUserState];
+        
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            return NO;
+        }
+        else{
+            NSLog(@"user state saved successfully");
+            
+            return YES;
+        }
+
+        return YES;
+    }
+    return NO;
+    
+}
+
+// method to check user with given user id already exist in DB
 -(BOOL)isUserIdExist:(NSString*)userId
 {
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -148,6 +263,7 @@
     [userInfo setValue:userDetail.userId forKey:kUserIdKey];
     [userInfo setValue:userDetail.emailId forKey:kUserEmailIdKey];
     [userInfo setValue:userDetail.password forKey:kPasswordKey];
+    [userInfo setValue:[NSNumber numberWithBool:userDetail.isLoggedIn] forKey:kUserState];
 
     NSError *error;
     if (![context save:&error]) {

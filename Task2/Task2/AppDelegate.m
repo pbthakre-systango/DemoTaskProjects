@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "SignUpViewController.h"
 #import "LoginViewController.h"
-
+#import "DBOperation.h"
+#import "UserDetail.h"
+#import "TaskListViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,6 +22,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
  
+    DBOperation *dbOperation=[[DBOperation alloc]init];
+    UserDetail *userDetail=[dbOperation fetchLoggedInUser];
+    if (userDetail!=nil) {
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:
+                                    @"Main" bundle:[NSBundle mainBundle]];
+        TaskListViewController *tasklistVC =
+        [storyboard instantiateViewControllerWithIdentifier:@"TaskListViewController"];
+        tasklistVC.userId=userDetail.userId;
+        [(UINavigationController *)self.window.rootViewController pushViewController:tasklistVC animated:NO];
+    }
     return YES;
 }
 

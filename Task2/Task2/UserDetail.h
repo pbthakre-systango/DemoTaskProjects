@@ -10,4 +10,5 @@
 
 @interface UserDetail : NSObject
 @property(nonatomic,strong)NSString *name,*userId,*password,*emailId;
+@property(nonatomic,assign) BOOL isLoggedIn;
 @end

@@ -9,5 +9,5 @@
 #import "UserDetail.h"
 
 @implementation UserDetail
-@synthesize name,userId,password,emailId;
+@synthesize name,userId,password,emailId,isLoggedIn;
 @end

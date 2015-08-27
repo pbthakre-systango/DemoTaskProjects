@@ -21,10 +21,11 @@
 #define kUserIdKey @"userId"
 #define kUserEmailIdKey @"emailId"
 #define kPasswordKey @"password"
-
+#define kUserState @"isLoggedIn"
 #define kTaskNameKey @"taskName"
 #define kTaskDetailKey @"taskDescription"
 #define kTaskIdKey @"taskId"
+
 
 @interface Utility : NSObject
 

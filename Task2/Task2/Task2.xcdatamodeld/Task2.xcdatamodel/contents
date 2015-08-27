@@ -8,12 +8,13 @@
     </entity>
     <entity name="UserDetail" syncable="YES">
         <attribute name="emailId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isLoggedIn" optional="YES" attributeType="Boolean" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="TaskDetail" positionX="-63" positionY="9" width="128" height="105"/>
-        <element name="UserDetail" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="UserDetail" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

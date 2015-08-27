@@ -94,7 +94,7 @@
             userdetail.name=self.txtUserName.text;
             userdetail.emailId=self.txtUserEmail.text;
             userdetail.password=self.txtPassword.text;
-            
+            userdetail.isLoggedIn=YES;
             [dbObject saveUserDetailInDB:userdetail];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:
                                         @"Main" bundle:[NSBundle mainBundle]];
