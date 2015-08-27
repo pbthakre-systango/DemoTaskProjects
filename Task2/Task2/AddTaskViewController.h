@@ -11,8 +11,8 @@
 @interface AddTaskViewController : UIViewController
 @property(nonatomic,strong)NSString *userId;
 @property(nonatomic,assign)int taskCount;
-@property(nonatomic,strong)IBOutlet UITextField * textTaskName;
-@property(nonatomic,strong)IBOutlet UITextView * textTaskDetail;
-@property(nonatomic,strong)IBOutlet UIButton *addTaskBtn;
+@property(nonatomic,weak)IBOutlet UITextField * textTaskName;
+@property(nonatomic,weak)IBOutlet UITextView * textTaskDetail;
+@property(nonatomic,weak)IBOutlet UIButton *addTaskBtn;
 -(IBAction)addTaskToDB:(id)sender;
 @end

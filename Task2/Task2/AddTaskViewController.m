@@ -24,6 +24,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+// method to save task detail in DB on button click
 -(IBAction)addTaskToDB:(id)sender{
     
     if ([self.textTaskDetail.text length]>0 && [self.textTaskName.text length]>0 )

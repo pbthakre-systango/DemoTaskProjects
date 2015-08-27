@@ -24,7 +24,7 @@
     }
     return self;
 }
-
+// method to fetch user detail with user id from DB
 -(UserDetail*)fetchUserDetailWithUserId:(NSString*)userId
 {
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -54,6 +54,7 @@
     }
     return nil;
 }
+// method to user with given user id already exist in DB
 -(BOOL)isUserIdExist:(NSString*)userId
 {
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -75,30 +76,7 @@
     return NO;
 
 }
--(TaskDetail*)fetchTaskDetailsWithTaskId:(NSString*)taskId
-{
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TaskDetail"
-                                              inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSPredicate *predicateName = [NSPredicate predicateWithFormat:@"taskId=%@", taskId];
-    fetchRequest.predicate=predicateName;
- 
-    [fetchRequest setResultType:NSDictionaryResultType];
-
-    
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    if (error || !fetchedObjects || [fetchedObjects count] > 1) {
-        NSLog(@"Whoops, couldn't fetch: %@", [error localizedDescription]);
-    }
-    else if ([fetchedObjects count]) {
-        TaskDetail *taskDetail=(TaskDetail*)[fetchedObjects objectAtIndex:0];
-        return taskDetail;
-    }
-    return nil;
-}
+// method to fetch all task with user id from DB
 
 -(NSArray*)fetchAllTaskForUserId:(NSString*)userId{
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -131,6 +109,7 @@
     }
     return nil;
 }
+// method save task detail in from DB
 
 -(BOOL)saveTaskDetailInDB:(TaskDetail*)taskDetail{
     
@@ -157,6 +136,8 @@
         return YES;
     }
 }
+// method save user detail in from DB
+
 -(BOOL)saveUserDetailInDB:(UserDetail*)userDetail{
     
     NSManagedObjectContext *context = [self managedObjectContext];

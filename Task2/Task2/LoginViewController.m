@@ -30,6 +30,9 @@
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [[self view] endEditing:YES];
 }
+
+// method validate  all fields and sign in i.e after doing password check
+
 -(IBAction)signInClicked:(id)sender
 {
     DBOperation *dbObject=[[DBOperation alloc]init];

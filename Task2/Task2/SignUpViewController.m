@@ -46,6 +46,8 @@
     [[self view] endEditing:YES];
 }
 
+// method validate email string
+
 - (BOOL)validateEmailWithString:(NSString*)checkString
 {
     BOOL stricterFilter = NO;
@@ -60,18 +62,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// method validate  all fields and sign up i.e save all data in DB
 -(IBAction)signUpClicked:(id)sender
 {
     DBOperation *dbObject=[[DBOperation alloc]init];
     if ([self.txtUserName.text length]>0 && [self.txtUserEmail.text length]>0 && [self.txtUserId.text length]>0 && [self.txtPassword.text length]>0 &&[self.txtconfirmPassword.text length]>0)
     {
-//        if (![self validateEmailWithString:self.txtUserEmail.text]) {
-//         
-//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Message" message:ValidEmailIdMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//            [alert show];
-//            return;
-//            
-//        }
+        if (![self validateEmailWithString:self.txtUserEmail.text]) {
+         
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Message" message:ValidEmailIdMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+            return;
+            
+        }
         if([dbObject isUserIdExist:self.txtUserId.text]){
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Message" message:UserIdExistMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
@@ -108,7 +112,7 @@
 }
 
 
-
+// method to navigate to sign in screen
 -(IBAction)signInClicked:(id)sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:
                                 @"Main" bundle:[NSBundle mainBundle]];

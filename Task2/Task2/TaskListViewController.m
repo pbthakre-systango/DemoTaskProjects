@@ -54,6 +54,7 @@
     }
 
 }
+// method to navigate to add task view
 -(void)addTaskItem:(id)sender
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:

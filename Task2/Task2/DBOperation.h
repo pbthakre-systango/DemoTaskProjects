@@ -18,7 +18,6 @@
 
 - (NSURL *)applicationDocumentsDirectory;
 -(UserDetail*)fetchUserDetailWithUserId:(NSString*)userId;
--(TaskDetail*)fetchTaskDetailsWithTaskId:(NSString*)taskId;
 -(NSArray*)fetchAllTaskForUserId:(NSString*)userId;
 -(BOOL)saveTaskDetailInDB:(TaskDetail*)taskDetail;
 -(BOOL)saveUserDetailInDB:(UserDetail*)userDetail;

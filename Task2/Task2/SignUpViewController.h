@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SignUpViewController : UIViewController
-@property(strong,nonatomic)IBOutlet UITextField *txtUserName,*txtUserId,*txtUserEmail,*txtPassword,*txtconfirmPassword;
-@property(strong,nonatomic)IBOutlet UIScrollView *baseScroll;
+@property(weak,nonatomic)IBOutlet UITextField *txtUserName,*txtUserId,*txtUserEmail,*txtPassword,*txtconfirmPassword;
+@property(weak,nonatomic)IBOutlet UIScrollView *baseScroll;
 -(IBAction)signUpClicked:(id)sender;
 -(IBAction)signInClicked:(id)sender;
 @end

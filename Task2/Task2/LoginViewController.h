@@ -11,5 +11,5 @@
 @interface LoginViewController : UIViewController
 
 -(IBAction)signInClicked:(id)sender;
-@property(strong,nonatomic)IBOutlet UITextField *txtPassword,*txtUserId;
+@property(weak,nonatomic)IBOutlet UITextField *txtPassword,*txtUserId;
 @end

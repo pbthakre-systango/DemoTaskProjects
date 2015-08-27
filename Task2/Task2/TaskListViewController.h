@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TaskListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-@property(nonatomic,strong)NSString *userId;
-@property(nonatomic,strong)IBOutlet UITableView*taskListTable;
+@property(nonatomic,weak)NSString *userId;
+@property(nonatomic,weak)IBOutlet UITableView*taskListTable;
 @end
